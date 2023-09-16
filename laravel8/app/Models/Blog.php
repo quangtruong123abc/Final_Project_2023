@@ -3,7 +3,7 @@
 namespace App\Models;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
-
+// hahhahah
 class Blog extends Model
 {
     use Notifiable;
