@@ -1,9 +1,8 @@
 <?php
-
+//
 namespace App\Models;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
-// hahhahah
 class Blog extends Model
 {
     use Notifiable;
@@ -12,7 +11,7 @@ class Blog extends Model
     /**
      * The attributes that are mass assignable.
      *
-     * @var array
+     * @var array 
      */
     protected $fillable = [
         'title', 'image', 'description', 'content', 'id_auth'
