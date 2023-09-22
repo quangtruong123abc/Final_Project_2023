@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Mail;
 use App\Http\Requests\frontend\checkoutRequest;
 use App\Models\Product;
+
+use App\Mail\MailNotify;
 class MailController extends Controller
 {
     public function sendMail(checkoutRequest $request)
@@ -15,6 +17,7 @@ class MailController extends Controller
         // $cart = session()->get('cart');
         $idProduct = session()->get('cart');
 
+        $product = [];
         foreach ($idProduct as $key => $value) {
             $product[] = Product::find($value['id'])->toArray();
 
@@ -29,19 +32,35 @@ class MailController extends Controller
 
     	$emailTo = $getRequest["email"];
         $subject = "Mail order product";
-    	Mail::send('frontend.sendMail.mail', 
-    		array(
-    			'product'=>$product,
-                'sum' => $sum,
-                'getRequest' => $getRequest
-    	    ),
-    		function ($message) use ($subject, $emailTo){
-                   $message->from('thienbaoit@gmail.com', 'Mail order product');
-                   $message->to($emailTo);
-                   $message->subject($subject);
-	    });
-	    session()->forget('cart');
-	    return view('frontend.cart.cart');
+
+        $data = [
+            'subject' => $subject,
+            'product'=>$product,
+            'sum' => $sum,
+            'getRequest' => $getRequest
+        ];
+      
+        try {
+            Mail::to($emailTo)->send(new MailNotify($data));
+            session()->forget('cart');
+            return view('frontend.cart.cart');
+            // return response()->json(['Send mail success']);
+        } catch (Exception $th) {
+            return response()->json(['Sorry, dont send mail.']);
+        }
+
+
+    	// Mail::send('frontend.sendMail.mail', 
+    	// 	array(
+    	// 		'product'=>$product,
+        //         'sum' => $sum
+    	//     ),
+    	// 	function ($message) use ($subject, $emailTo){
+        //            $message->from('thienbaoit@gmail.com', 'Mail order product');
+        //            $message->to($emailTo);
+        //            $message->subject($subject);
+	    // });
+	    
     }
 
     

@@ -35,7 +35,7 @@ class HomeController extends Controller
     public function index()
     {
        
-        session()->forget('cart');
+        // session()->forget('cart');
         $getAllProduct = Product::all()->toArray();
         
         

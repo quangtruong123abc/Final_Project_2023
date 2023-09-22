@@ -10,34 +10,14 @@
 			</ol>
 		</div><!--/breadcrums-->
 		@if(!empty($product))
-		<!-- <div class="step-one">
-			<h2 class="heading">Step1</h2>
-		</div>
-		<div class="checkout-options">
-			<h3>New User</h3>
-			<p>Checkout options</p>
-			<ul class="nav">
-				<li>
-					<label><input type="checkbox"> Register Account</label>
-				</li>
-				<li>
-					<label><input type="checkbox"> Guest Checkout</label>
-				</li>
-				<li>
-					<a href=""><i class="fa fa-times"></i>Cancel</a>
-				</li>
-			</ul>
-		</div> --><!--/checkout-options-->
-
-		<!-- <div class="register-req">
-			<p>Please use Register And Checkout to easily get access to your order history, or use Checkout as Guest</p>
-		</div> --><!--/register-req-->
+		
 
 		<div class="shopper-informations">
 			<div class="row">
 				<div class="col-sm-8">
 					<div class="shopper-info">
 						<p>Shopper Information</p>
+
 						@if($errors->any())
                             <div class="alert alert-danger alert-dismissible">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -51,11 +31,27 @@
                         @endif
 						<form method="POST" action="">
 							@csrf
-							<input type="text" placeholder="Email" name="email">
-							<input type="text" placeholder="User Name" name="name">
-							<input type="phone" placeholder="Phone" name="phone">
-							<input type="address" placeholder="Address" name="address">
-							<button type="submit" class="btn btn-primary">Continue</button>
+							<?php
+								if(Auth::check()){
+
+							?>
+								<input type="hidden" placeholder="Email" name="email" value="{{Auth::user()->email}}">
+								<input type="hidden" placeholder="User Name" name="name" value="{{Auth::user()->name}}">
+								<input type="hidden" placeholder="Phone" name="phone" value="{{Auth::user()->phone}}">
+								<input type="hidden" placeholder="Address" name="address" value="{{Auth::user()->address}}">
+								<button type="submit" class="btn btn-primary">Continue</button>
+							<?php
+								}else{
+							?>
+							<p>
+								<a href="{{ url('/member-login') }}">Vui lòng click vào đây đăng nhập để mua hang!</a>
+							</p>
+								
+							<?php
+								}
+							?>
+							
+							
 						</form>
 						
 						
@@ -190,13 +186,6 @@
 	        $(this).text($(this).parent().prev().find('.cart_quantity_input').val() * $(this).parent().prev().prev().find('span.price_product').text());
 	    });
 	    
-	    
-
-
-	    
-	    
-		
-		
 		$('.cart_quantity_up').click(function(){
 			$(this).prev().val(+ $(this).prev().val()+ 1);
 
@@ -227,4 +216,3 @@
 	})
 </script>
 @endsection
-
