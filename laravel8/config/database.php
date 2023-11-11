@@ -96,16 +96,16 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Migration Repository Table
+    |  Repository Table
     |--------------------------------------------------------------------------
     |
-    | This table keeps track of all the migrations that have already run for
+    | This table keeps track of all the s that have already run for
     | your application. Using this information, we can determine which of
-    | the migrations on disk haven't actually been run in the database.
+    | the s on disk haven't actually been run in the database.
     |
     */
 
-    'migrations' => 'migrations',
+    's' => 's',
 
     /*
     |--------------------------------------------------------------------------

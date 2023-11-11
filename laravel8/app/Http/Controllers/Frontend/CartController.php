@@ -64,7 +64,7 @@ class CartController extends Controller
     {
         if (session()->has('cart')) {
             $idProduct = session()->get('cart');
-
+           
             foreach ($idProduct as $key => $value) {
                 $product[] = Product::find($value['id'])->toArray();
 
