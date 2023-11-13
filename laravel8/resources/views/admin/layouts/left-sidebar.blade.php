@@ -53,6 +53,13 @@
                         <span class="hide-menu">{{ __('Blog') }}</span>
                     </a>
                 </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ url('/admin/transaction/list') }}" aria-expanded="false">
+                        <i class="mdi mdi-file"></i>
+                        <span class="hide-menu">{{ __('admin.listTransaction') }}</span>
+                    </a>
+                </li>
+
                 <!-- <li class="sidebar-item">
                     <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ url('/admin/page') }}" aria-expanded="false">
                         <i class="mdi mdi-menu"></i>

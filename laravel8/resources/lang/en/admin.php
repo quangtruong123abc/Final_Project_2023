@@ -9,5 +9,8 @@ return [
     'listCategory' => 'List Category',
     'listBrand' => 'List Brand',
     'listProduct'=>'List Product',
-    'detailProduct'=> 'Detail Product'
+    'detailProduct'=> 'Detail Product',
+    'listTransaction'=>'List Transaction',
+    'detailTransaction'=> 'Detail Transaction',
+
 ];

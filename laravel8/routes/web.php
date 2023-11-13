@@ -12,6 +12,8 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\OnePageController;
+use App\Http\Controllers\Admin\InvoiceController;
+
 // 
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\MemberController;
@@ -35,6 +37,13 @@ Route::group([
     Route::get('/yourCart', [CartController::class, 'showCart']);
     Route::get('/cart-qty-delete/{id}', [CartController::class, 'cartDelete']);
     Route::post('/yourCart', [MailController::class, 'sendMail']);
+
+
+Route::get('/create-payment', [\App\Http\Controllers\Frontend\PaymentController::class, 'createPayment'])->name('createPayment');
+Route::post('/process-paypal', [\App\Http\Controllers\Frontend\PaymentController::class, 'processPaypal'])->name('processPaypal');
+Route::get('/process-success', [\App\Http\Controllers\Frontend\PaymentController::class, 'success'])->name('success');
+Route::get('/process-cancel', [\App\Http\Controllers\Frontend\PaymentController::class, 'cancel'])->name('cancel');
+
 
     
      //blog
@@ -78,8 +87,6 @@ Route::group([
 
     });
 });
-
-
 // admin (backend)
 
 Auth::routes();
@@ -145,4 +152,10 @@ Route::group([
     Route::post('/country',[CountryController::class, 'addCountry']);
     Route::get('/country/delete/{id}',[CountryController::class, 'deleteCountry']);
 
+    //Transaction
+    Route::get('/transaction/list',[InvoiceController::class, 'listTransaction']);
+    Route::get('/transaction/view/{id}',[InvoiceController::class, 'transactionById']);
+
 });
+
+

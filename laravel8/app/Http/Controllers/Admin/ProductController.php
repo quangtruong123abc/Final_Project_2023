@@ -77,9 +77,9 @@ class ProductController extends Controller
         
         if ($deleteProduct) {
             foreach ($getArrImage as $value) {
-                unlink('upload/product/'.$value);
-                unlink('upload/product/small_'.$value);
-                unlink('upload/product/larger_'.$value);
+                unlink('upload/product/'.$getProduct["id_user"].'/'.$value);
+                // unlink('upload/product/small_'.$value);
+                // unlink('upload/product/larger_'.$value);
             }
             return redirect('/admin/product/list')->with('deleted','Delete product '.$getProduct['name'].' successfully.');
         }
