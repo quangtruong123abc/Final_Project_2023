@@ -25,3 +25,4 @@ class InvoiceController extends Controller
         return view('admin.transaction.detail', compact('invoiceDetail'));
     }
 }
+//

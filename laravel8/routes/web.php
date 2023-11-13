@@ -152,7 +152,7 @@ Route::group([
     Route::post('/country',[CountryController::class, 'addCountry']);
     Route::get('/country/delete/{id}',[CountryController::class, 'deleteCountry']);
 
-    //Transaction
+    //Transaction//
     Route::get('/transaction/list',[InvoiceController::class, 'listTransaction']);
     Route::get('/transaction/view/{id}',[InvoiceController::class, 'transactionById']);
 

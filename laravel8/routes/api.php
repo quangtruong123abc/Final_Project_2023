@@ -67,7 +67,7 @@ Route::group([
     
     Route::get('/blog/detail-pagination/{id}',[BlogController::class, 'pagingBlogDetail']);
 
-
+//
     // Route::get('testapi', 'TestApiController@index');
     // Route::post('testapi','TestApiController@store');
     // Route::get('testapi/{id}', 'TestApiController@show');

@@ -18,4 +18,4 @@ class InvoiceDetail extends Model
         'user_id',
     ];
 
-}
+}//
