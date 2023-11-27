@@ -37,7 +37,9 @@ Route::group([
     Route::get('/yourCart', [CartController::class, 'showCart']);
     Route::get('/cart-qty-delete/{id}', [CartController::class, 'cartDelete']);
     Route::post('/yourCart', [MailController::class, 'sendMail']);
-
+    
+    Route::get('/auth/google', [\App\Http\Controllers\Auth\LoginController::class, 'getGoogleSignInUrl']);
+    Route::get('/google/callback', [\App\Http\Controllers\Auth\LoginController::class, 'loginCallback']);
 
 Route::get('/create-payment', [\App\Http\Controllers\Frontend\PaymentController::class, 'createPayment'])->name('createPayment');
 Route::post('/process-paypal', [\App\Http\Controllers\Frontend\PaymentController::class, 'processPaypal'])->name('processPaypal');

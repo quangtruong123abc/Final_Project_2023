@@ -97,6 +97,15 @@
                                 @endif -->
                             </div>
                         </div>
+                        <div class="form-group row mb-0">
+                            <div class="col-md-8 offset-md-4">
+                                <a href="/laravel_new/laravel8/public/auth/google">
+                                    <button type="button" class="btn btn-danger">
+                                        Login with Google
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>

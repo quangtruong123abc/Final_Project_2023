@@ -25,7 +25,8 @@ class User extends Authenticatable
         'address',
         // 'country',
         'avatar',
-        'level'
+        'level',
+        'google_id',
     ];
 
     /**
