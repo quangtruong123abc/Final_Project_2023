@@ -62,9 +62,9 @@
                                     <td>{{$value['email']}}</td>
                                     <td>{{$value['level'] == 1 ? 'admin' : 'member'}}</td>
                                     <td>
-                                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ url('/admin/user/profile/'.$value['id']) }}" aria-expanded="false">
+                                        <!-- <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ url('/admin/user/profile/'.$value['id']) }}" aria-expanded="false">
                                             <i class="mdi mdi-account-edit">Edit</i>
-                                        </a>
+                                        </a> -->
                                         &nbsp &nbsp
                                         <?php if($value['level'] == 0) { ?>
                                         <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ url('/admin/user/delete/'.$value['id']) }}" aria-expanded="false">

@@ -73,9 +73,12 @@
 	                                </li>
 	                            @endif
 	                        @else
-	                            <li class="nav-item dropdown">
+	                            <li class="nav-item dropdown"> 
+									@if (Auth::user()->google_id != null)
+	                            	<img src="{{ URL::to(Auth::user()->avatar) }}" alt="user" class="rounded-circle" style="width: 20px; height: 20px;">
+									@else
 	                            	<img src="{{ URL::to('/upload/user/avatar/'.Auth::user()->avatar) }}" alt="user" class="rounded-circle" style="width: 20px; height: 20px;">
-
+									@endif
 
 	                                <a style="display: inline-block;" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
 	                                    {{ Auth::user()->name }} <span class="caret"></span>

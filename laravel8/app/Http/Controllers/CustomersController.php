@@ -18,7 +18,7 @@ class CustomersController extends Controller
         
         $xx =  "day la controller , index";
         
-        return view('binh', compact("xx"));
+        return view('quang', compact("xx"));
     }
 
 

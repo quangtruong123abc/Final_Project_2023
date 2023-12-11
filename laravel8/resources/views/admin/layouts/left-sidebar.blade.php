@@ -4,12 +4,12 @@
         <!-- Sidebar navigation-->
         <nav class="sidebar-nav">
             <ul id="sidebarnav">
-                <li class="sidebar-item">
+                <!-- <li class="sidebar-item">
                     <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ url('/admin/dashboard') }}" aria-expanded="false">
                         <i class="mdi mdi-av-timer"></i>
                         <span class="hide-menu">{{ __('admin.dashboard') }}</span>
                     </a>
-                </li>
+                </li> -->
                 <li class="sidebar-item">
                     <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ url('/admin/user/profile/'.Auth::user()->id) }}" aria-expanded="false">
                         <i class="mdi mdi-account-network"></i>

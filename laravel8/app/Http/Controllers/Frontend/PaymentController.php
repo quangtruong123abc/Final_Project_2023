@@ -29,8 +29,8 @@ class PaymentController extends Controller
                     'total_money'      => $request->price,
                     'user_id'          => $user->id,
                     'name'             => $user->name,
-                    'address'          => $user->address,
-                    'phone'            => $user->phone,
+                    'address'          => $user->address ? $user->address : "",
+                    'phone'            => $user->phone ? $user->phone : "",
                     'email'            => $user->email,
                 ]);
                 $listCart = session()->get('cart');
